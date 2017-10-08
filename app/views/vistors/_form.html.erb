@@ -1,0 +1,36 @@
+<div >
+
+<%= form_with(model: vistor, local: true) do |form| %>
+  <% if vistor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vistor.errors.count, "error") %> prohibited this vistor from being saved:</h2>
+
+      <ul>
+      <% vistor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <form class="row">
+      <div class="form-group">
+        <%= form.label :username %>
+        <%= form.text_field :username, id: :vistor_username, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :contact_number %>
+        <%= form.text_field :contact_number, id: :vistor_contact_number, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= form.label :email %>
+        <%= form.text_field :email, id: :vistor_email, class: "form-control"  %>
+      </div>
+
+      <div class="form-group">
+       <%= form.submit %>
+     </div>
+    </form>
+<% end %>
+
+</div>
