@@ -1,0 +1,30 @@
+<tr>
+    <td width="10" align="center">
+        <i class="fa fa-2x fa-user fw"></i>
+    </td>
+    
+    <td>
+      <%= vistor.username %><br>
+    </td>
+    
+    <td>
+      <%= vistor.email %>
+    </td>
+
+    <td>
+      <%= vistor.contact_number %>
+    </td>
+
+    <td>                                    
+        <%= time_ago_in_words(vistor.created_at) %> ago
+    </td>
+
+    <td>
+      <% if vistor.checkout_time.present? %>
+        <%=  I18n.l vistor.checkout_time.time, :format => "%I.%m %p",  :locale => :"en" %>
+      <% else %>
+        <%= link_to 'Sign out', signout_vistor_vistors_path(vistor_id: vistor.id), data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </td>
+
+</tr>
