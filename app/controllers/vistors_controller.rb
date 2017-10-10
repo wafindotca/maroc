@@ -114,6 +114,6 @@ class VistorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vistor_params
-      params.require(:vistor).permit(:username, :contact_number, :email)
+      params.require(:vistor).permit(:username, :contact_number, :email, :visitor_type, :here_for, :host, :note, :arrival_time, :arrival_date)
     end
 end

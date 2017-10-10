@@ -3,6 +3,21 @@
      <%= link_to '', welcome_index_path%>
 </div>
 <%= form_with(model: vistor, local: true) do |form| %>
+
+
+  <% if vistor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vistor.errors.count, "error") %> prohibited this vistor from being saved:</h2>
+
+      <ul>
+      <% vistor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
   <div class="col-md-8">
       <div class="form-group">
         <label class="label-visitors" for="sel1">VISITOR TYPE</label>
@@ -17,15 +32,14 @@
   <div class="col-md-4">
     <div class="form-group">
       <label class="label-visitors" for="usr">ARRIVAL DATE</label>
-      <input type="text" class="form-control form-class" id="usr">
-      <%#= form.text_field :fecha, :input_html => { "data-behaviour" => "datepicker" } %>
+      <%= form.text_field :arrival_date, 'data-behaviour' => 'datepicker',class: "form-control form-class" %>
     </div>
    </div>
 
   <div class="col-md-4">
     <div class="form-group">
       <label class="label-visitors" for="usr">ARRIVAL TIME</label>
-      <input type="text" class="form-control form-class" id="usr">
+      <%= form.select :arrival_time, options_for_select(create_hours(:start_time => 0.hours, :end_time => 23.5.hours)),{},{class: "form-control form-class"} %>
     </div>
   </div>
 
