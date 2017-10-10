@@ -19,5 +19,5 @@ $ ->
       weekStart: 1
       autoclose: true
 
-  $(document).on "change", "#search_by_date", (e) ->
-   debugger
+  $(document).on "change", "#search_search_by_date", (e) ->
+    $(this).parents('form').submit();

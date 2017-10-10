@@ -19,9 +19,11 @@
   </div>
   <div class="row">
     <h3 class="col-md-8">
-      <%= link_to '<', new_vistor_path, :class => 'btn btn-danger' %>
-      <%= text_field_tag :search_by_date,"", 'data-behaviour' => 'datepicker',:value => Time.now.strftime('%A, %d %b %Y')%>
-      <%= link_to '>', new_vistor_path, :class => 'btn btn-danger' %>
+      <%= form_for :search, :url => search_by_date_vistors_path, :id =>"search_by_date_form"  do |f| %>
+        <%= link_to '<', new_vistor_path, :class => 'btn btn-danger' %>
+        <%= f.text_field :search_by_date,:value => Time.now.strftime('%A, %d %b %Y'), 'data-behaviour' => 'datepicker'%>
+        <%= link_to '>', new_vistor_path, :class => 'btn btn-danger' %>
+      <% end %>
     </h3>
     <div class="col-md-3">
       <%= select_tag('search_by_user_type', options_for_select(["Currently Signed In", "Currently Signed Out"]),prompt: "All Visitors", class: 'form-control search_by_user_type', id: 'search_by_user_type') %>

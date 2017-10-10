@@ -106,6 +106,11 @@ class VistorsController < ApplicationController
     end
   end
 
+  def search_by_date
+    params[:search][:search_by_date].to_date
+    @vistor = Vistor.where('created_at BETWEEN ? AND ?', params[:search][:search_by_date].to_date.beginning_of_day, params[:search][:search_by_date].to_date.end_of_day)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vistor

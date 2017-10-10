@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get :search_visitor
       get :search_by_user_type
       get :generate_reports
+      post :search_by_date
     end
   end
   get 'welcome/index'
