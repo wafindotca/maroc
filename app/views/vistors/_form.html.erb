@@ -1,22 +1,12 @@
 <div class="col-md-8">
-    <h3 class="new-visitor"> <i class="fa fa-arrow-circle-left" aria-hidden="true" style="margin-right: 30px;"></i>New visitor</h3>
-     <%= link_to '', welcome_index_path%>
+    <h3 class="new-visitor"> 
+      <a href= "/welcome/index">
+        <i class="fa fa-arrow-circle-left" aria-hidden="true" style="margin-right: 30px; color: black">
+        </i>
+      </a>New visitor</h3>
 </div>
+
 <%= form_with(model: vistor, local: true) do |form| %>
-
-
-  <% if vistor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(vistor.errors.count, "error") %> prohibited this vistor from being saved:</h2>
-
-      <ul>
-      <% vistor.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   
   <div class="col-md-8">
       <div class="form-group">
@@ -32,21 +22,22 @@
   <div class="col-md-4">
     <div class="form-group">
       <label class="label-visitors" for="usr">ARRIVAL DATE</label>
-      <%= form.text_field :arrival_date, 'data-behaviour' => 'datepicker',class: "form-control form-class" %>
+      <%= form.text_field :arrival_date, 'data-behaviour' => 'datepicker',class: "form-control form-class",:required => true %>
     </div>
    </div>
 
   <div class="col-md-4">
     <div class="form-group">
       <label class="label-visitors" for="usr">ARRIVAL TIME</label>
-      <%= form.select :arrival_time, options_for_select(create_hours(:start_time => 0.hours, :end_time => 23.5.hours)),{},{class: "form-control form-class"} %>
+      <%= form.select :arrival_time, options_for_select(create_hours(:start_time => 0.hours, :end_time => 23.5.hours)),{},{class: "form-control form-class" ,:required => true} %>
     </div>
   </div>
 
   <div class="col-md-8">
     <div class="form-group">
-      <label class="label-visitors" for="usr">FULL NAME </label>
-      <%= form.text_field :username, id: :vistor_username, class: "form-control form-class" %>
+      <label class="label-visitors" for="usr">FULL NAME </label><span class="requiredField"></span>
+      <%= form.text_field :username, id: :vistor_username, class: "form-control form-class",:required => true %>
+      <small class='error'><%= show_errors(@vistor, :username) %></small>
     </div>
   </div>
 
