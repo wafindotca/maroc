@@ -1,36 +1,89 @@
-<div >
-
-<%= form_with(model: vistor, local: true) do |form| %>
-  <% if vistor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(vistor.errors.count, "error") %> prohibited this vistor from being saved:</h2>
-
-      <ul>
-      <% vistor.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-    <form class="row">
-      <div class="form-group">
-        <%= form.label :username %>
-        <%= form.text_field :username, id: :vistor_username, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= form.label :contact_number %>
-        <%= form.text_field :contact_number, id: :vistor_contact_number, class: "form-control"  %>
-      </div>
-      <div class="form-group">
-        <%= form.label :email %>
-        <%= form.text_field :email, id: :vistor_email, class: "form-control"  %>
-      </div>
-
-      <div class="form-group">
-       <%= form.submit %>
-     </div>
-    </form>
-<% end %>
-
+<div class="col-md-8">
+    <h3 class="new-visitor"> <i class="fa fa-arrow-circle-left" aria-hidden="true" style="margin-right: 30px;"></i>New visitor</h3>
+     <%= link_to '', welcome_index_path%>
 </div>
+<%= form_with(model: vistor, local: true) do |form| %>
+  <div class="col-md-8">
+      <div class="form-group">
+        <label class="label-visitors" for="sel1">VISITOR TYPE</label>
+        <%= form.select :visitor_type, options_for_select(Vistor::VISITOR_TYPE, :selected => @vistor.visitor_type),{},{class: "form-control form-class"} %>
+      </div>
+  </div>
+
+  <div class="clearfix">
+    
+  </div>
+
+  <div class="col-md-4">
+    <div class="form-group">
+      <label class="label-visitors" for="usr">ARRIVAL DATE</label>
+      <input type="text" class="form-control form-class" id="usr">
+      <%#= form.text_field :fecha, :input_html => { "data-behaviour" => "datepicker" } %>
+    </div>
+   </div>
+
+  <div class="col-md-4">
+    <div class="form-group">
+      <label class="label-visitors" for="usr">ARRIVAL TIME</label>
+      <input type="text" class="form-control form-class" id="usr">
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div class="form-group">
+      <label class="label-visitors" for="usr">FULL NAME </label>
+      <%= form.text_field :username, id: :vistor_username, class: "form-control form-class" %>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div class="form-group">
+      <label class="label-visitors" for="usr">YOU ARE HERE FOR</label>
+      <%= form.text_field :here_for, id: :here_for, class: "form-control form-class" %>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div class="form-group">
+      <label class="label-visitors" for="usr">YOUR PHONE NUMBER</label>
+      <%= form.text_field :contact_number, id: :vistor_contact_number, class: "form-control form-class"  %>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div class="form-group">
+      <label class="label-visitors" for="usr">YOUR EMAIL ADDRESS</label>
+      <%= form.text_field :email, id: :vistor_email, class: "form-control form-class"  %>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+      <div class="form-group">
+      <label class="label-visitors" for="sel1">HOST</label>
+        <%= form.select :host, options_for_select(Vistor::HOST, :selected => @vistor.visitor_type),{:include_blank => "Select Host"},{class: "form-control form-class"} %> 
+      </div>  
+  </div>
+
+  <div class="col-md-8">
+    <div class="form-group">
+      <label class="label-visitors" for="comment">PRIVATE NOTES</label>
+      <%= form.text_area :note, id: :note, class: "form-control form-class", rows: "5"  %>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+                                
+   <div class="col-md-4">
+      <label class="checkbox-inline label-visitors margin-label-visitors"><input type="checkbox" value="">SEND HOST NOTIFICATION</label>
+   </div>
+
+  <div class="clearfix"></div>
+
+
+   <div class="col-md-8 btn-visitor"">
+      <%= form.submit "Sign in", :class => 'btn btn-sign' %>
+      <%= form.submit "Sign in and add another", :class => 'btn btn-sign-another' %>
+   </div>
+
+<%end%>

@@ -6,6 +6,8 @@ class Vistor < ApplicationRecord
 	validates_uniqueness_of :email
 	validates_uniqueness_of :contact_number
 
+	VISITOR_TYPE = ["Vistor", "Meeting", "Interview", "Friend/Family Visit"]
+	HOST = ["CEO", "CTO", "Designer", "Project Manager"]
 	def self.to_csv
     CSV.generate do |csv|
       csv << ["Id", "Recipient Email" , "Via" , "Status" , "Date"]
