@@ -14,5 +14,8 @@
  *= require_self
  *= require jquery-ui
  *= require bootstrap
+ 
+ *= font-awesome-sprockets
+ *= require font-awesome
  */
 

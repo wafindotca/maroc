@@ -3,12 +3,61 @@
   <head>
     <title>Maroc</title>
     <%= csrf_meta_tags %>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag "font-awesome" %>
+     <%= stylesheet_link_tag "font-awesome.min" %>
+    <%= stylesheet_link_tag "style" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+  	 <div class="container">
+        <div class="row">
+            <div class="col-md-2 no-float">
+                <header>
+                <%= inline_svg("logo.svg")%>
+                <div class="tech">Said Tech HQ</div>
+                </header>
+
+                <header>
+                    <nav>
+                         <li class="visitor-list-box">
+                            <a class="active visitor-list" href="">Visitors</a>
+                        </li>
+
+                        <li  class="visitor-list-box">
+                            <a class="visitor-list"  href="#">Visitor log</a>
+                        </li>
+                        
+                        <li  class="visitor-list-box">
+                            <a class="visitor-list"  href="#">Invites</a>
+                        </li>
+
+                        <li  class="visitor-list-box">
+                            <a class="visitor-list"  href="#">Analytics</a>
+                        </li>
+
+                        <li  class="visitor-list-box">
+                            <a class="visitor-list"  href="#">Devices </a>
+                        </li>
+
+                        <li  class="visitor-list-box">
+                            <a class="visitor-list"  href="#">Settings</a>
+                        </li>
+                    </nav>
+                </header>
+            </div> 
+
+            <div class="col-md-10 no-float">                                    
+            	<%= yield %>
+            </div>
+                    
+     
+        </div>
+    </div>
+ 
   </body>
 </html>

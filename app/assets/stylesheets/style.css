@@ -1,0 +1,150 @@
+body, html{
+
+background: #f6f6f7; 
+-webkit-font-smoothing: subpixel-antialiased;
+font-size: 100%;
+color: #111;
+min-height: 100%;
+
+}
+
+
+
+.container {
+	height: 100vh;
+    display:table;
+    width: 100%;
+   /* margin-top: -50px;*/
+    padding: 35px; /*set left/right padding according to needs*/
+    box-sizing: border-box;
+}
+
+
+.row {
+    height: 100%;
+    display: table-row;
+}
+
+.col-md-2 {   
+    
+}
+.col-md-10 {
+    background: #fff;  	
+}
+
+.row .no-float {
+  display: table-cell;
+  float: none;
+}
+
+
+
+.logo-image{
+
+padding-bottom: 2rem;
+
+}
+
+.tech{
+
+	padding-bottom: 1rem;
+	font-weight: bold;
+}
+
+
+
+.visitor-list{
+
+color: #333;
+text-decoration: none !important;
+}
+
+
+
+.visitor-list-box{
+
+	list-style: none;
+	margin-bottom: 1rem;
+}
+
+
+.nav a.active, nav a:focus, nav a:hover{
+outline: none;
+color: #ef3934;
+text-decoration: none;
+
+}
+
+
+.new-visitor{
+
+font-weight: bold;
+font-size: 20px;
+margin-top: 20px;
+margin-bottom: 30px;
+}
+
+
+
+.label-visitors{
+
+font-size: 11px;
+display: inline-block;
+max-width: 100%;
+margin-bottom: 0px;
+font-weight: 600;
+color: #93959a;
+}
+
+
+.margin-label-visitors{
+
+	margin-bottom: 30px;
+}
+
+
+.btn-visitor{
+
+margin-bottom: 50px;
+}
+
+
+.btn-sign{
+font-size: 16px;
+color: #fff;
+background-color: #ef3934;
+border-color: #ef3934;
+border-radius: 2px;
+
+}
+
+
+.btn-sign-another{
+font-size: 16px;	
+color: #ef3934;
+background-color: #fff;
+border-color: #ef3934;
+border-radius: 2px;
+margin-left: 20px;
+
+}
+
+
+
+.form-class:focus {
+
+border-color: #ef3934;
+outline: 0;
+box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px rgba(102, 175, 233, .6);
+}
+
+
+@media (max-width: 767px) {
+   .row .no-float 
+
+   {
+    display: block;
+    
+}
+
+}

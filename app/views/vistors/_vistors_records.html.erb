@@ -21,7 +21,7 @@
 
     <td>
       <% if vistor.checkout_time.present? %>
-        <%=  I18n.l vistor.checkout_time.time, :format => "%I.%m %p",  :locale => :"en" %>
+        <%=  I18n.l vistor.checkout_time.localtime, :format => "%I:%m %p",  :locale => :"en" %>
       <% else %>
         <%= link_to 'Sign out', signout_vistor_vistors_path(vistor_id: vistor.id), data: { confirm: 'Are you sure?' } %>
       <% end %>
