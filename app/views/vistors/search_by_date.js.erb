@@ -1,0 +1,6 @@
+$(".vistor_record").html("<%= escape_javascript render partial: 'vistors_records', collection: @vistors, as: :vistor  %>"); 
+$(".vistor-count").html("<%= @vistors.count %> Vistors")
+
+$('#search_by_tomorrow').val("<%= @tomorrow %>")
+$('#search_by_yesterday').val("<%=@yesterday %>")
+$('#search_by_calender').val("<%=@today %>")

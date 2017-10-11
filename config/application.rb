@@ -14,7 +14,7 @@ module Marco
  	config.assets.paths << "#{Rails.root}/app/assets/fonts" 
  	config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
-
+ 	config.time_zone = 'Pacific Time (US & Canada)'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

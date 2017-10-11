@@ -15,15 +15,15 @@
       <%= vistor.contact_number %>
     </td>
 
-    <td>                                    
-        <%= time_ago_in_words(vistor.created_at) %> ago
+    <td>                              
+        <%= vistor.created_at.localtime.strftime("%I:%M %p") %>
     </td>
 
     <td>
       <% if vistor.checkout_time.present? %>
-        <%=  I18n.l vistor.checkout_time.localtime, :format => "%I:%m %p",  :locale => :"en" %>
+        <%= vistor.checkout_time.localtime.strftime("%I:%M %p") %>
       <% else %>
-        <%= link_to 'Sign out', signout_vistor_vistors_path(vistor_id: vistor.id), data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Sign out', signout_vistor_vistors_path(vistor_id: vistor.id) %>
       <% end %>
     </td>
 

@@ -15,9 +15,25 @@ $ ->
   
   $(document).on "focus", "[data-behaviour~='datepicker']", (e) ->
    $(this).datepicker
-      format: "dd-mm-yy"
+      format: "yyyy-mm-dd"
       weekStart: 1
       autoclose: true
 
-  $(document).on "change", "#search_search_by_date", (e) ->
-    $(this).parents('form').submit();
+  $(document).on "change", "#search_by_calender", (e) ->
+    $.ajax
+      url: 'vistors/search_by_date'
+      data: {search_by_date : $('#search_by_calender').val()}
+      dataType: "script"
+  
+
+  $(document).on "click", ".yesterday_record_button", (e) ->
+    $.ajax
+      url: 'vistors/search_by_date'
+      data: {search_by_date : $('#search_by_yesterday').val()}
+      dataType: "script"
+
+  $(document).on "click", ".tomorrow_record_button", (e) ->
+    $.ajax
+      url: 'vistors/search_by_date'
+      data: {search_by_date : $('#search_by_tomorrow').val()}
+      dataType: "script"

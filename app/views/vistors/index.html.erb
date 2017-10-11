@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 <script src="https://use.fontawesome.com/1e803d693b.js"></script>
 
+
 <div class="container">
   <div class="row">
-    <h3 class="col-md-4">
-      Total Vistors:
-      <%=  @vistors.count %>
+    <h3 class="col-md-4 vistor-count">
+      <%=  @vistors.count %> Vistors
     </h3>
     <div class="col-md-4">
       
@@ -18,18 +18,27 @@
     </div>
   </div>
   <div class="row">
-    <h3 class="col-md-8">
-      <%= form_for :search, :url => search_by_date_vistors_path, :id =>"search_by_date_form"  do |f| %>
-        <%= link_to '<', new_vistor_path, :class => 'btn btn-danger' %>
-        <%= f.text_field :search_by_date,:value => Time.now.strftime('%A, %d %b %Y'), 'data-behaviour' => 'datepicker'%>
-        <%= link_to '>', new_vistor_path, :class => 'btn btn-danger' %>
-      <% end %>
-    </h3>
+    <div class="col-md-8 search_by_date_form">
+      <%= label_tag '<', nil, class: 'btn btn-danger yesterday_record_button' %>
+      <%= hidden_field_tag :search_by_yesterday, @yesterday, 'data-behaviour' => 'datepicker'%>
+
+      
+<!--       <%= form_for :search, :url => search_by_date_vistors_path, remote: true, :id =>"search_by_date_form"  do |f| %>
+        <%= f.text_field :search_by_date,:value => @today.strftime('%A, %d %b %Y'), 'data-behaviour' => 'datepicker'%>
+      <% end %> -->
+
+      <%= text_field_tag :search_by_calender, @today.strftime('%A, %d %b %Y'), 'data-behaviour' => 'datepicker'%>
+
+      <%= label_tag '>', nil, class: 'btn btn-danger tomorrow_record_button' %>
+      <%= hidden_field_tag :search_by_tomorrow, @tomorrow, 'data-behaviour' => 'datepicker'%>
+
+
+    </div>
     <div class="col-md-3">
       <%= select_tag('search_by_user_type', options_for_select(["Currently Signed In", "Currently Signed Out"]),prompt: "All Visitors", class: 'form-control search_by_user_type', id: 'search_by_user_type') %>
     </div>
     <div class="col-md-1">
-      <%= link_to 'Export', generate_reports_vistors_path(format: :csv), :class => 'btn btn-large btn-danger' %>
+      <%= link_to 'Export', generate_reports_vistors_path(format: :csv, date: @today), :class => 'btn btn-large btn-danger' %>
     </div>
   </div>
   <br>
@@ -57,6 +66,13 @@
                     </table>
                 </div>
             </div>
+
+          <div class="col-md-3">
+            <div class="vistor-count">
+              <%=  @vistors.count %> Vistors
+            </div>
+            <%= link_to 'Export', generate_reports_vistors_path(format: :csv, date: @today), :class => '' %>
+          </div>
         </div>
 
   </div>
@@ -64,6 +80,7 @@
   <br>
   <%= link_to 'Home', welcome_index_path %>
 </div>
+
 
 <style type="text/css">
   i {  vertical-align: middle; }

@@ -1,28 +1,25 @@
 class VistorsController < ApplicationController
   before_action :set_vistor, only: [:show, :edit, :update, :destroy]
 
-  # GET /vistors
-  # GET /vistors.json
   def index
-    @vistors = Vistor.all
+    @today = Time.now
+    @yesterday = Time.now - 1.day
+    @tomorrow = Time.now + 1.day
+    @vistors = Vistor.where("created_at >= ?",Time.now.beginning_of_day)
+    # @vistors = Vistor.where('created_at BETWEEN ? AND ?', @today.to_date.beginning_of_day, @today.to_date.end_of_day)
   end
 
-  # GET /vistors/1
-  # GET /vistors/1.json
   def show
   end
 
-  # GET /vistors/new
   def new
     @vistor = Vistor.new
   end
 
-  # GET /vistors/1/edit
   def edit
   end
 
-  # POST /vistors
-  # POST /vistors.json
+ 
   def create
     @vistor = Vistor.new(vistor_params)
 
@@ -36,9 +33,7 @@ class VistorsController < ApplicationController
       end
     end
   end
-
-  # PATCH/PUT /vistors/1
-  # PATCH/PUT /vistors/1.json
+ 
   def update
     respond_to do |format|
       if @vistor.update(vistor_params)
@@ -51,8 +46,7 @@ class VistorsController < ApplicationController
     end
   end
 
-  # DELETE /vistors/1
-  # DELETE /vistors/1.json
+
   def destroy
     @vistor.destroy
     respond_to do |format|
@@ -89,17 +83,8 @@ class VistorsController < ApplicationController
     end
   end
 
-
   def generate_reports
-    @vistor = Vistor.all.order(:created_at)
-    respond_to do |format|
-      format.csv { send_data @vistor.to_csv }
-    end
-  end
-
-
-  def generate_reports
-    @vistor = Vistor.all.order(:created_at)
+    @vistor = Vistor.where('created_at BETWEEN ? AND ?', params[:date].to_time.beginning_of_day, params[:date].to_time.end_of_day)
     respond_to do |format|
       format.html
       format.csv { send_data @vistor.to_csv, filename: "vistor_report-#{Time.zone.today}.csv" }
@@ -107,17 +92,26 @@ class VistorsController < ApplicationController
   end
 
   def search_by_date
-    params[:search][:search_by_date].to_date
-    @vistor = Vistor.where('created_at BETWEEN ? AND ?', params[:search][:search_by_date].to_date.beginning_of_day, params[:search][:search_by_date].to_date.end_of_day)
+    @today = params[:search_by_date].to_date
+    @yesterday = @today - 1.day
+    @tomorrow = @today + 1.day
+    @vistors = Vistor.where('created_at BETWEEN ? AND ?', params[:search_by_date].to_time.beginning_of_day, params[:search_by_date].to_time.end_of_day)
+  end
+
+
+  def calender_search_record
+    @today = params[:search][:search_by_date].to_date
+    @yesterday = @today - 1.day
+    @tomorrow = @today + 1.day
+    @vistors = Vistor.where('created_at BETWEEN ? AND ?', params[:search][:search_by_date].to_time.beginning_of_day, params[:search][:search_by_date].to_time.end_of_day)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_vistor
       @vistor = Vistor.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def vistor_params
       params.require(:vistor).permit(:username, :contact_number, :email, :visitor_type, :here_for, :host, :note, :arrival_time, :arrival_date)
     end
