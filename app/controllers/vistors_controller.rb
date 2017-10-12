@@ -6,7 +6,6 @@ class VistorsController < ApplicationController
     @yesterday = Time.now - 1.day
     @tomorrow = Time.now + 1.day
     @vistors = Vistor.where("created_at >= ?",Time.now.beginning_of_day)
-    # @vistors = Vistor.where('created_at BETWEEN ? AND ?', @today.to_date.beginning_of_day, @today.to_date.end_of_day)
   end
 
   def show

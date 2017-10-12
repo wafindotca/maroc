@@ -6,12 +6,12 @@ font-size: 100%;
 color: #111;
 min-height: 100%;
 
+
 }
 
+.main-container{
 
-
-.container {
-	height: 100vh;
+  height: 100vh;
     display:table;
     width: 100%;
    /* margin-top: -50px;*/
@@ -20,16 +20,14 @@ min-height: 100%;
 }
 
 
-.row {
+.main-row {
     height: 100%;
     display: table-row;
 }
 
-.col-md-2 {   
-    
-}
-.col-md-10 {
-    background: #fff;  	
+
+.float_row {
+    background: #fff;   
 }
 
 .row .no-float {
@@ -47,8 +45,8 @@ padding-bottom: 2rem;
 
 .tech{
 
-	padding-bottom: 1rem;
-	font-weight: bold;
+  padding-bottom: 1rem;
+  font-weight: bold;
 }
 
 
@@ -63,8 +61,8 @@ text-decoration: none !important;
 
 .visitor-list-box{
 
-	list-style: none;
-	margin-bottom: 1rem;
+  list-style: none;
+  margin-bottom: 1rem;
 }
 
 
@@ -80,7 +78,7 @@ text-decoration: none;
 
 font-weight: bold;
 font-size: 20px;
-margin-top: 20px;
+/*margin-top: 20px*/;
 margin-bottom: 30px;
 }
 
@@ -99,7 +97,7 @@ color: #93959a;
 
 .margin-label-visitors{
 
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 
@@ -110,32 +108,43 @@ margin-bottom: 50px;
 
 
 .btn-sign{
-font-size: 16px;
-color: #fff;
-background-color: #ef3934;
-border-color: #ef3934;
-border-radius: 2px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #ef3934;
+  border-color: #ef3934;
+  border-radius: 2px;
+  width: 102px;
+  
 
 }
 
 
 .btn-sign-another{
-font-size: 16px;	
-color: #ef3934;
-background-color: #fff;
-border-color: #ef3934;
-border-radius: 2px;
-margin-left: 20px;
+  font-size: 16px;  
+  color: #ef3934;
+  background-color: #fff;
+  border-color: #ef3934;
+  border-radius: 2px;
+  margin-left: 20px;
 
 }
+
+
+.form-class{
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+}
+
 
 
 
 .form-class:focus {
 
-border-color: #ef3934;
-outline: 0;
-box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px rgba(102, 175, 233, .6);
+  border-color: #ef3934;
+  outline: 0;
+  box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px rgba(102, 175, 233, .6);
 }
 
 
@@ -146,6 +155,62 @@ box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px rgba(102, 175, 233, .6);
     display: block;
     
 }
+
+}
+
+
+
+
+.btn-sign-another:hover, .btn-sign-another:focus, .btn-sign-another.focus {
+  color: #e01812;;
+  text-decoration: none;
+}
+
+
+.btn-sign:hover, .btn-sign:focus, .btn-sign.focus {
+    color: cornsilk;
+    text-decoration: none;
+}
+
+
+
+
+.page-div{
+
+  width: 100%;
+}
+
+
+
+.main-page{
+background-image: url(homepage.jpg);
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat; 
+height: 100vh;
+padding: 0px;
+
+}
+
+
+
+.text{
+
+  padding-top: 12rem;
+  color: #fff;
+}
+
+
+
+.search-icon{
+
+border-radius: 4rem;
+margin-top: 0.7rem;
+}
+
+
+.search-visitor{
+  margin-top: 0.6rem;
 
 }
 
@@ -162,3 +227,12 @@ box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px rgba(102, 175, 233, .6);
 .search_by_date_form > form {
   display: inline-block;
 }
+
+.user_panel{
+  margin-top: 20px
+}
+
+.export-link{
+  color: red
+}
+

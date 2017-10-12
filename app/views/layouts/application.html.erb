@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag "font-awesome" %>
-     <%= stylesheet_link_tag "font-awesome.min" %>
+    <%= stylesheet_link_tag "font-awesome.min" %>
     <%= stylesheet_link_tag "style" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -16,12 +16,12 @@
   </head>
 
   <body>
-  	 <div class="container">
-        <div class="row">
+    <div class="container main-container">
+        <div class="row main-row">
             <div class="col-md-2 no-float">
                 <header>
-                <%= inline_svg("logo.svg")%>
-                <div class="tech">Said Tech HQ</div>
+                <%= inline_svg("logo.svg") %>
+                <div class="tech"><a href= "/welcome/index">Said Tech HQ</a></div>
                 </header>
 
                 <header>
@@ -51,15 +51,17 @@
                         </li>
                     </nav>
                 </header>
-            </div> 
+            </div>                                                                                                                           
 
-            <div class="col-md-10 no-float">                                    
-            	<%= yield %>
-            </div>
                     
-     
+       <!-- Page Content -->
+            <div class="col-md-10 float_row no-float">
+                <%= yield %>
+              </div>
+            <!-- Page Content -->
+          </div>
         </div>
-    </div>
- 
-  </body>
+    </body>
 </html>
+
+
