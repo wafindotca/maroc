@@ -236,3 +236,79 @@ margin-top: 0.7rem;
   color: red
 }
 
+#search_by_calender{
+  text-align: center;
+}
+
+.search-visitor{
+  margin-top: 0.6rem;
+
+}
+
+
+.arrow-btn{
+
+border-radius: 2px;
+background-color: transparent;
+box-shadow: 0 0 0 1px #c9cacd inset;
+color: #272c37;
+}
+
+
+.vistor-dropdown{
+
+  right: 0.8rem;
+  left: unset;
+}
+
+
+.circle-par{
+
+
+  background-color: hsl(205, 33%, 45%);
+  text-align: -webkit-center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 50px;
+}
+
+
+.margin-inline{
+
+  top: 30%;
+}
+
+
+.table_heading 
+{
+font-size: 12px;
+color: rgb(147, 145, 154);
+}
+
+.heading{
+
+  font-size: 8px;
+  color: rgb(147, 145, 154);
+
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: baseline;
+    border-top: 1px solid #ddd;
+}
+
+
+.table_data{
+  font-weight: bold;
+} 
+
+.table_data2{
+   color: rgb(147, 145, 154);
+  font-size: 12px;
+} 

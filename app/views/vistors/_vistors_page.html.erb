@@ -5,7 +5,7 @@
 
     <div class="col-md-4">
         <div class="form-group">
-          <%= text_field_tag 'search-query', nil, class: 'search-query form-control form-class search-icon', placeholder: "&#xF002; Search visitors" %>
+          <input type="text" class="search-query form-control form-class search-icon" id="search-query" placeholder="&#xF002; Search visitors">
         </div>
     </div>
 
@@ -18,10 +18,10 @@
   <div class="row">
 
     <div class="col-md-6 search_by_date_form">
-        <%= label_tag '<', nil, class: 'btn btn-danger yesterday_record_button' %>
+        <button type="button" class="btn arrow-btn yesterday_record_button"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
         <%= hidden_field_tag :search_by_yesterday, @yesterday, 'data-behaviour' => 'datepicker'%>
-        <%= text_field_tag :search_by_calender, @today.strftime('%A, %d %b %Y'), 'data-behaviour' => 'datepicker'%>
-        <%= label_tag '>', nil, class: 'btn btn-danger tomorrow_record_button' %>
+        <%= text_field_tag :search_by_calender, @today.strftime('%a, %d %b %Y'), class: "btn arrow-btn", 'data-behaviour' => 'datepicker'%>
+        <button type="button" class="btn arrow-btn tomorrow_record_button"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
         <%= hidden_field_tag :search_by_tomorrow, @tomorrow, 'data-behaviour' => 'datepicker'%>
     </div>
     
@@ -35,27 +35,23 @@
   
   </div>
 
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th class="table_heading">NAME</th>
+      <th class="table_heading">EMAIL</th>
+      <th class="table_heading">CONTACT NO</th>
+      <th class="table_heading">SIGN IN</th>
+      <th class="table_heading">SIGN OUT</th>
+    </tr>
+  </thead>
+  <tbody class="vistor_record">
+    <%= render :partial => 'vistors_records',collection: @vistors, as: :vistor %>
+  </tbody>
+</table>
 <div class="row">
-  <div class="panel">
-      <div class="panel-body">
-        <div class="table-container">
-          <table class="table-users table" border="0">
-            <tbody> 
-              <th>Image</th>
-              <th>User Name</th>
-              <th>Email</th>
-              <th>Contact Number</th>
-              <th>Checked In</th>
-              <th>Checked Out</th>
-              <tbody class="vistor_record">
-                <%= render :partial => 'vistors_records',collection: @vistors, as: :vistor %>
-              </tbody>
-          </table>
-        </div>
-      </div>      
-    </div>
-  </div>
-  <div class="row">
     <div class="col-md-3">
         <h5 class=""><%=  @vistors.count %> Vistors
           <%= link_to 'Export', generate_reports_vistors_path(format: :csv, date: @today), :class => 'export-link' %>

@@ -3,14 +3,14 @@ $ ->
     $.ajax
       method: 'GET'
       url: '/vistors/search_visitor'
-      data: {search_query: this.value}
+      data: {search_query: this.value, search_by_date : $('#search_by_calender').val() }
       datatype: 'script'  
       
   $(document).on 'input', '.search_by_user_type', ->
     $.ajax
       method: 'GET'
       url: '/vistors/search_by_user_type'
-      data: {user_type: this.value}
+      data: {user_type: this.value , search_by_date : $('#search_by_calender').val() }
       datatype: 'script'
   
   $(document).on "focus", "[data-behaviour~='datepicker']", (e) ->
